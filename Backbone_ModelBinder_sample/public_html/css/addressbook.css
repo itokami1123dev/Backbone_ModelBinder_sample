@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  padding: 16px; }
+
+.list-view {
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 2px black; }
+  .list-view h1 {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 16px;
+    color: white;
+    background-color: #2C7979; }
+  .list-view ul {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 140px;
+    overflow: auto; }
+    .list-view ul li {
+      margin: 0;
+      padding: 16px;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.4); }
+
+.detail-view {
+  float: left;
+  margin: 0 0 0 16px;
+  padding: 0;
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 0 2px black; }
+  .detail-view .detail-contents {
+    padding: 8px 0; }
+    .detail-view .detail-contents > div {
+      float: left;
+      margin: 0;
+      padding: 0; }
+    .detail-view .detail-contents .face {
+      width: 40%;
+      text-align: center; }
+    .detail-view .detail-contents .name-kana {
+      padding: 32px 0;
+      width: 60%; }
+      .detail-view .detail-contents .name-kana .name span {
+        display: none; }
+      .detail-view .detail-contents .name-kana .kana span {
+        display: none;
+        font-size: 0.7em; }
+      .detail-view .detail-contents .name-kana .js-edit-name {
+        display: none; }
+      .detail-view .detail-contents .name-kana .js-edit-kana {
+        display: none; }
+  .detail-view .js-edit-btn {
+    display: none; }
