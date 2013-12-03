@@ -73,10 +73,8 @@ article > h1 {
       .detail-view .detail-contents .name-kana .kana span {
         display: none;
         font-size: 0.7em; }
-      .detail-view .detail-contents .name-kana .js-edit-name {
-        display: none; }
-      .detail-view .detail-contents .name-kana .js-edit-kana {
-        display: none; }
+      .detail-view .detail-contents .name-kana input[type="text"] {
+        width: 80px; }
   .detail-view .ctl-btns {
     text-align: center; }
   .detail-view .js-edit-btn {

@@ -2,11 +2,12 @@ var BinderDetailView = Backbone.View.extend({
     el: '#binder-address-detail-view',
     state: null,
     initialize: function(options) {
-        this.modelBinder = new Backbone.ModelBinder();
         this.state = new Backbone.Model({ "state_is_edit": false});
         this.addressList = options.addressList;
         this.listenTo(this.addressList, 'selectItem', this.selectRender);
         this.listenTo(this.state, "change",this.stateChange);
+        this.stateChange();
+        this.modelBinder = new Backbone.ModelBinder();
     },
     events:{
         'click .js-edit-btn': 'onClick_editBtn'
@@ -43,6 +44,10 @@ var BinderDetailView = Backbone.View.extend({
         this.$('.js-name').text( name);
         this.$('.js-kana').text( kana);
       
+        this.stateChange();
+      
+        this.$('.js-edit-btn').show();
+        
         var bindings = { 
             name: {selector: '.js-edit-name' },
             kana: {selector: '.js-edit-kana' },
@@ -55,9 +60,7 @@ var BinderDetailView = Backbone.View.extend({
             this.el,
             bindings );
       
-        this.stateChange();
-      
-        this.$('.js-edit-btn').show();
+        
     },
     
     stateChange: function(){

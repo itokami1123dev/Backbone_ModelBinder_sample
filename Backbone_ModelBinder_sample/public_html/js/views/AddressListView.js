@@ -1,6 +1,7 @@
 var AddressListView = Backbone.View.extend({
     el: '#address-list-view',
     nowSelectItem:null,
+    
     initialize: function(options) {
         this.addressList = options.addressList;
         this.listenTo(this.addressList, 'reset', this.createRender);
@@ -14,6 +15,7 @@ var AddressListView = Backbone.View.extend({
             addressList: this.addressList
         });
         addressItemView.createRender();
+        
         this.$('.js-list').append(addressItemView.$el);
         
     }

@@ -3,7 +3,7 @@ var AddressItemView = Backbone.View.extend({
     initialize: function(options) {
         this.address = options.address;
         this.addressList = options.addressList;
-        this.listenTo(this.address, 'change', this.render);
+        this.listenTo(this.address, 'change', this.updateRender);
     },
     events: {
        "click": "onClick_item"
@@ -11,12 +11,11 @@ var AddressItemView = Backbone.View.extend({
     createRender: function(){
         this.$el.append('<div class="js-item-name item-name"></div>');
         this.$el.append('<div class="js-item-kana item-kana"></div>');
-        this.render();
+        this.updateRender();
     },
-    render: function(){
+    updateRender: function(){
         this.$('.js-item-name').text( this.address.get('name') + '様');
         this.$('.js-item-kana').text( this.address.get('kana'));
-        return this.$el;
     },
     onClick_item: function( event){
         

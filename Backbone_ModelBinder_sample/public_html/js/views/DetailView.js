@@ -5,8 +5,9 @@ var DetailView = Backbone.View.extend({
         this.state = new Backbone.Model({ "state_is_edit": false});
         this.addressList = options.addressList;
         this.listenTo(this.addressList, 'selectItem', this.selectRender);
-        this.listenTo(this.addressList, 'change', this.render);
         this.listenTo(this.state, "change",this.stateChange);
+        this.listenTo(this.addressList, 'change', this.render);
+        this.stateChange();
     },
     events:{
         'click .js-edit-btn': 'onClick_editBtn'

@@ -3,7 +3,9 @@ var BinderAddressItemView = Backbone.View.extend({
     initialize: function(options) {
         this.address = options.address;
         this.addressList = options.addressList;
+        
         this.modelBinder = new Backbone.ModelBinder();
+        
     },
     events: {
        "click": "onClick_item"

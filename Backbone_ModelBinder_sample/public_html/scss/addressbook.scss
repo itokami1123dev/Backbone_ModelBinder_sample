@@ -101,8 +101,9 @@ article > h1{
                 }
             }
             
-            .js-edit-name{display: none;}
-            .js-edit-kana{display: none;}
+            input[type="text"]{
+                width: 80px;
+            }
             
         }
         
