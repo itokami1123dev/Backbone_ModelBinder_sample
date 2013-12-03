@@ -1,6 +1,7 @@
-var AddressListView = Backbone.View.extend({
-    el: '#address-list-view',
+var BinderAddressListView = Backbone.View.extend({
+    el: '#binder-address-list-view',
     nowSelectItem:null,
+
     initialize: function(options) {
         this.addressList = options.addressList;
         this.listenTo(this.addressList, 'reset', this.createRender);
@@ -9,11 +10,12 @@ var AddressListView = Backbone.View.extend({
         this.addressList.each( this.createOneRender, this);
     },
     createOneRender: function( address){
-        var addressItemView = new AddressItemView({
+        var addressItemView = new BinderAddressItemView({
             address: address,
             addressList: this.addressList
         });
         addressItemView.createRender();
+        
         this.$('.js-list').append(addressItemView.$el);
         
     }

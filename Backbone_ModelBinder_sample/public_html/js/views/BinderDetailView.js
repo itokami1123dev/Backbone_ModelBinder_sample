@@ -1,11 +1,11 @@
-var DetailView = Backbone.View.extend({
-    el: '#address-detail-view',
+var BinderDetailView = Backbone.View.extend({
+    el: '#binder-address-detail-view',
     state: null,
     initialize: function(options) {
+        this.modelBinder = new Backbone.ModelBinder();
         this.state = new Backbone.Model({ "state_is_edit": false});
         this.addressList = options.addressList;
         this.listenTo(this.addressList, 'selectItem', this.selectRender);
-        this.listenTo(this.addressList, 'change', this.render);
         this.listenTo(this.state, "change",this.stateChange);
     },
     events:{
@@ -43,19 +43,21 @@ var DetailView = Backbone.View.extend({
         this.$('.js-name').text( name);
         this.$('.js-kana').text( kana);
       
+        var bindings = { 
+            name: {selector: '.js-edit-name' },
+            kana: {selector: '.js-edit-kana' },
+            name: {selector: '.js-name' },
+            kana: {selector: '.js-kana' }
+        };
+        
+        this.modelBinder.bind(
+            this.address,
+            this.el,
+            bindings );
+      
         this.stateChange();
       
         this.$('.js-edit-btn').show();
-    },
-    render: function(){
-        var name = this.address.get('name'),
-            kana = this.address.get('kana');
-        
-        this.$('.js-edit-name').val( name);
-        this.$('.js-edit-kana').val( kana);
-        this.$('.js-name').text( name);
-        this.$('.js-kana').text( kana);
-        
     },
     
     stateChange: function(){

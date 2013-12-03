@@ -1,7 +1,23 @@
 $list-view-height: 200px;
 
 *{ box-sizing: border-box;}
+
 body{ padding: 16px;}
+
+article{
+    padding: 12px;
+    margin:4px 2px 24px 2px;
+    height: 250px;
+    box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.4);
+}
+
+article > h1{
+    margin:0;
+    height: 24px;
+    font-size: 20px;
+    line-height: 24px;
+}
+
 .list-view{
     float: left;
     margin:0;padding:0;
@@ -29,6 +45,14 @@ body{ padding: 16px;}
             padding:16px;
             border-bottom: solid 1px rgba( 0, 0, 0, 0.4);
         }
+        
+        .item-name{
+            font-size: 14px;
+        }
+        
+        .item-kana{
+            font-size: 10px;            
+        }
     }
     
 }
@@ -52,8 +76,12 @@ body{ padding: 16px;}
         }
         
         .face{
-            width:40%;
+            width:30%;
             text-align: center;
+        }
+        
+        .face img{
+            width: 60%;
         }
 
         .name-kana{
@@ -79,6 +107,10 @@ body{ padding: 16px;}
         }
         
         
+    }
+    
+    .ctl-btns{
+        text-align: center;
     }
     .js-edit-btn{display: none};
 }

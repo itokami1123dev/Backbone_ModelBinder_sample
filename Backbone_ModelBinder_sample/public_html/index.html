@@ -8,6 +8,7 @@
         <script src='js/libs/underscore.js/underscore-min.js'></script>
         <script src='js/libs/jquery/jquery.min.js'></script>
         <script src='js/libs/backbone.js/backbone-min.js'></script>
+        <script src='js/libs/Backbone.ModelBinder.js'></script>
         
         <script src="js/models/AddressModel.js" ></script>
         <script src="js/models/AddressCollection.js" ></script>
@@ -15,12 +16,17 @@
         <script src="js/views/AddressItemView.js" ></script>
         <script src="js/views/AddressListView.js" ></script>
         <script src="js/views/DetailView.js" ></script>
+        <script src="js/views/BinderAddressItemView.js" ></script>
+        <script src="js/views/BinderAddressListView.js" ></script>
+        <script src="js/views/BinderDetailView.js" ></script>
         
         <script src="js/app.js" ></script>
     </head>
     <body>
-        <article>
-            
+        <article class="no-model-binder" >
+
+            <h1>Backbone.ModelBinderを使わない</h1>
+
             <section id="address-list-view" class="list-view" >
                 <h1>連絡先一覧</h1>
                 <ul class="js-list">
@@ -28,6 +34,41 @@
             </section>
             
             <section id="address-detail-view" class="detail-view" >
+                <div class="detail-contents" >
+                    <div class="face" >
+                        <img src="images/face.png" />
+                    </div>
+                    <div class="name-kana" >
+                        <div class="name" >
+                            名前　:　
+                            <span class="js-name"></span>
+                            <input type="text" class="js-edit-name" />
+                        </div>
+                        <div class="kana" >
+                            カナ　:　
+                            <span class="js-kana"></span>
+                            <input type="text" class="js-edit-kana" />
+                        </div>
+                    </div>
+                </div>
+                <div class="ctl-btns">
+                    <button class="js-edit-btn">編集</button>
+                </div>
+            </section>
+            
+        </article>
+        
+        <article class="use-model-binder" >
+            
+            <h1>Backbone.ModelBinderを使う</h1>
+            
+            <section id="binder-address-list-view" class="list-view" >
+                <h1>連絡先一覧</h1>
+                <ul class="js-list">
+                </ul>
+            </section>
+            
+            <section id="binder-address-detail-view" class="detail-view" >
                 <div class="detail-contents" >
                     <div class="face" >
                         <img src="images/face.png" />
